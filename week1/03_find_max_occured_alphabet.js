@@ -18,13 +18,15 @@ function find_max_occurred_alphabet(string) {
   //   }
   // }
 
+  //for문이 좀 더 간결해보이는데 어느게 좋은걸까?
+
   const aASCIICode = 'a'.charCodeAt(0);
 
   const alphabet_arr = string.split('').reduce( (acc, cur) => {
     const cur_ASCII = cur.charCodeAt(0);
 
     if ( cur_ASCII >= 97 && cur_ASCII <= 122 ) {
-      const index = cur_ASCII - 97;
+      const index = cur_ASCII - aASCIICode;
 
       acc[index] += 1;
     }
@@ -42,7 +44,7 @@ function find_max_occurred_alphabet(string) {
     }
   }
 
-  return String.fromCharCode(max_index + 97);
+  return String.fromCharCode(max_index + aASCIICode); 
 }
 
 const result = find_max_occurred_alphabet(input);
